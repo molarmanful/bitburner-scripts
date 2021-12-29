@@ -1,4 +1,7 @@
 /** @param {NS} ns **/
+
+// run hacknet.js
+
 export async function main(ns) {
     let hn = ns.hacknet
     let canBuy = x=> x < ns.getServerMoneyAvailable('home') / 2
