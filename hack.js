@@ -10,10 +10,6 @@ export async function main(ns) {
     ns.disableLog('ALL')
     ns.enableLog('print')
     ns.enableLog('sleep')
-
-    for(let host of getNuked(ns)){
-        await ns.scp('serf.js', host)
-    }
     
     while(1){
         let secLim = ns.getServerMinSecurityLevel(target) + 3
@@ -36,6 +32,7 @@ export async function main(ns) {
             ns.killall(host)
             let thrCount = 0 | ns.getServerMaxRam(host) / ns.getScriptRam('serf.js')
             if(thrCount > 0){
+                await ns.scp('serf.js', host)
                 ns.exec('serf.js', host, thrCount, mode, target);
             }
         }
