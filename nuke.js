@@ -1,5 +1,7 @@
 /** @param {NS} ns **/
 
+// run nuke.js
+
 import {getServers} from 'nuke-helpers.js'
 
 export async function main(ns) {
